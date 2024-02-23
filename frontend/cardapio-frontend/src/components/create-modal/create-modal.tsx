@@ -14,7 +14,7 @@ interface ModalProps {
 }
 
 const Input = ({ label, value, updateValue }: InputProps) => {
-    if (label == 'price') {
+    if (label == 'Preço do produto:') {
         return (
             <>
             <label>{label}</label>
@@ -55,11 +55,14 @@ export function CreateModal({closeModal}: ModalProps) {
     return (
         <div className="modal-overlay">
             <div className="modal-body">
-                <h2>Cadastre um novo item no cardápio</h2>
+                <h2>
+                    Cadastre um novo item no cardápio
+                    <button onClick={closeModal} className="btn-close">X</button>
+                </h2>
                 <form className="input-container">
-                    <Input label="title" value={title} updateValue={setTitle} />
-                    <Input label="price" value={price} updateValue={setPrice} />
-                    <Input label="image" value={image} updateValue={setImage} />
+                    <Input label="Nome do produto:" value={title} updateValue={setTitle} />
+                    <Input label="Preço do produto:" value={price} updateValue={setPrice} />
+                    <Input label="URL da imagem:" value={image} updateValue={setImage} />
                 </form>
                 <button onClick={submit} className="btn-secondary">{isLoading ? 'Postando' : 'Postar'}</button>
             </div>

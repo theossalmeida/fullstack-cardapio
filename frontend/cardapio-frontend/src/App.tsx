@@ -1,33 +1,19 @@
-import { useState } from 'react';
-import './App.css'
-import { Card } from './components/card/card.tsx';
-import { useFoodData } from './hooks/useFoodData';
-import { CreateModal } from './components/create-modal/create-modal.tsx';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MenuPage from './pages/menu/menu.tsx';
+import HomePage from './pages/home/home.tsx';
+import './App.css';
 
 function App() {
-  const { data } = useFoodData();
-  const [ isModalOpen, setIsModalOpen ]= useState(false);
-  const handleOpenModal = () => {
-    setIsModalOpen(prev => !prev)
-  }
-  
   return (
-      <div className="container">
-        <h1>Cardápio</h1>
-        <div className='card-grid'>
-          {data?.map(FoodData => 
-            <Card 
-              price={FoodData.price} 
-              image={FoodData.image} 
-              title={FoodData.title}
-            />
-          )}
-          {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
-          <button onClick={handleOpenModal}>novo</button>
-        </div>   
-      </div>
-  )
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path='/' element={<HomePage />}/>
+          <Route path="/cardapio" element={<MenuPage />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
-export default App
+export default App;
