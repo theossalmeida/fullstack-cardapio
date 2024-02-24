@@ -55,10 +55,8 @@ export function CreateModal({closeModal}: ModalProps) {
     return (
         <div className="modal-overlay">
             <div className="modal-body">
-                <h2>
-                    Cadastre um novo item no cardápio
-                    <button onClick={closeModal} className="btn-close">X</button>
-                </h2>
+                <h2>Cadastre um novo item no cardápio</h2>
+                <button onClick={closeModal} className="btn-close">X</button>
                 <form className="input-container">
                     <Input label="Nome do produto:" value={title} updateValue={setTitle} />
                     <Input label="Preço do produto:" value={price} updateValue={setPrice} />

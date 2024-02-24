@@ -25,6 +25,8 @@
 
 .modal-overlay .modal-body h2 {
     font-size: 32px;
+    width: 100%;
+    text-align: center;
 }
 
 .modal-overlay .modal-body .input-container {
@@ -39,36 +41,43 @@
     line-height: 24px;
     border-radius: 12px;
     width: 100%;
-
-    margin-bottom: 12px;
+    margin-bottom: 30px;
 }
 
 .modal-overlay .modal-body label {
     color: #242424;
     font-weight: 600;
-    margin-bottom: 8px;
     font-size: 18px;
 }
 
 .modal-overlay .modal-body .btn-secondary {
-    position: initial;
-    width: 100%;
-    margin-top: 32px;
+    min-height: 32px;
+    padding: 0 32px;
+    border-radius: 16px;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 0px #3a00df;
+    background: linear-gradient(170deg, #359eff 5%, #3a00df 95%);
+    align-self: center;
 }
 
 .modal-overlay .modal-body .btn-secondary:hover {
-    background-color: #3a44f8;
-    transform: scale(1);
+    background-color: #2a2ea1;
+    transform: scale();
 }
 
 .modal-overlay .modal-body .btn-close {
-    position:initial;
-    width: 100%;
-    margin-top: 32px;
+    background-color: #ffffff;
+    color: #242424;
+    position: absolute;
+    right: 20%;
+    top: 20%;
+    width: 5%;
+    height: 5%;
+    padding: 0 0 0 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
-
-.modal-overlay .modal-body .btn-close:hover {
-    background-color: #3a44f8;
-    transform: scale(1);
-}
-

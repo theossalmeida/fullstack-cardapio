@@ -25,9 +25,15 @@ public class FoodController {
 
     @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping
-    public List<FoodResponseDTO> getAll() {
+    public List<FoodResponseDTO> getAll(@RequestParam(required = false) String q) {
+        List<FoodResponseDTO> foodList;
 
-        List<FoodResponseDTO> foodList = repository.findAll().stream().map(FoodResponseDTO::new).toList();
+        if (q != null && !q.isEmpty()) {
+            foodList = repository.findByTitleContainingIgnoreCase(q).stream().map(FoodResponseDTO::new).toList();
+        } else {
+            foodList = repository.findAll().stream().map(FoodResponseDTO::new).toList();
+        }
+
         return foodList;
     }
 }
